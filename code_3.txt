@@ -1,0 +1,17 @@
+PROGRAM
+DIM fact, x, i AS INT
+
+MAIN
+    INPUT x 
+
+    LET fact = 1
+
+    IF x > 1 THEN
+        FOR i = 1 TO x 
+            LET fact = fact * i
+        NEXT i
+    ELSE
+    END IF
+
+    PRINT fact
+END

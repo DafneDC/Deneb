@@ -1,0 +1,62 @@
+PROGRAM
+
+DIM base, altura AS FLOAT
+DIM a, b, c AS FLOAT
+DIM f AS INT
+DIM fact AS INT
+DIM ln, div, pot AS FLOAT
+DIM ciclos, j, i AS INT
+DIM perimetro, x, exp, n AS FLOAT
+
+PROCEDURE factorial
+    LET fact = 1
+    IF f > 1 THEN
+        FOR i = 1 TO f 
+            LET fact = fact * i
+        NEXT i
+    ELSE
+    END IF
+RETURN
+
+MAIN
+    LET div = 0
+    LET ln = 0
+
+    INPUT base
+    INPUT altura
+
+    LET a = base * base
+    LET b = altura * altura
+
+    LET x = a + b
+
+    LET div = ((x * x) - 1) / ((x * x) + 1)
+
+    LET ciclos = 1000
+
+    FOR n = 0 TO ciclos - 1
+        LET pot = 1
+        FOR j = 1 TO (2 * n + 1)
+            LET pot = pot * div
+        NEXT j
+        LET ln = ln + ((1 / (2 * n + 1)) * pot)
+    NEXT n
+
+    LET c = 0
+    LET exp = ln / 2
+    LET ciclos = 100
+
+    FOR n = 0 TO ciclos - 1
+        LET pot = 1
+        FOR j = 0 TO n - 1
+            LET pot = pot * exp
+        NEXT j
+        LET f = n
+        GOSUB factorial
+        LET c = c + (pot/fact)
+    NEXT n
+
+    LET perimetro = base + altura + c
+    LET fact = 1
+    PRINT perimetro
+END

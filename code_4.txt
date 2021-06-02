@@ -1,0 +1,21 @@
+PROGRAM
+DIM fact, x, i AS INT
+
+PROCEDURE factorial
+    LET fact = 1
+    IF x > 1 THEN
+        FOR i = 1 TO x 
+            LET fact = fact * i
+        NEXT i
+    ELSE
+    END IF
+RETURN
+
+MAIN
+    INPUT x
+
+    GOSUB factorial
+
+    PRINT fact
+    
+END

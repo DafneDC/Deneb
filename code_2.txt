@@ -1,0 +1,84 @@
+PROGRAM
+DIM i, num, cant, aux, aux2 AS INT
+
+DIM numeros AS INT [10][10]
+
+DIM n0, n1, n2, n3, n4 AS STRING
+DIM n5, n6, n7, n8, n9 AS STRING
+
+PROCEDURE iniciar
+   LET n0 = "cero" 
+   LET n1 = "uno"
+   LET n2 = "dos"
+   LET n3 = "tres"
+   LET n4 = "cuatro"
+   LET n5 = "cinco"
+   LET n6 = "seis"
+   LET n7 = "siete"
+   LET n8 = "ocho"
+   LET n9 = "nueve"
+RETURN
+
+MAIN
+
+    GOSUB iniciar
+
+    LET cant = 0
+    LET i = 0
+
+    INPUT num
+
+    WHILE num > 0 DO
+        LET numeros[i,cant] = num
+        LET cant = cant + 1
+        LET num = num / 10
+    WEND
+    
+    FOR i = 0 TO cant - 2
+        LET aux = numeros[0,i+1] * 10
+        LET aux2 = numeros[0,i] - aux
+        LET numeros[0,i] = aux2
+    NEXT i
+
+    FOR i = 0 TO cant - 1
+        LET aux = numeros[0,i]
+        IF aux == 9 THEN
+            PRINT n9
+        ELSE
+            IF aux == 8 THEN
+                PRINT n8
+            ELSE
+                IF aux == 7 THEN
+                    PRINT n7
+                ELSE
+                    IF aux == 6 THEN
+                        PRINT n6
+                    ELSE
+                        IF aux == 5 THEN
+                            PRINT n5
+                        ELSE
+                            IF aux == 4 THEN
+                                PRINT n4
+                            ELSE
+                                IF aux == 3 THEN
+                                    PRINT n3
+                                ELSE
+                                    IF aux == 2 THEN
+                                        PRINT n2
+                                    ELSE
+                                        IF aux == 1 THEN
+                                            PRINT n1
+                                        ELSE
+                                            PRINT n0
+                                        END IF
+                                    END IF
+                                END IF
+                            END IF
+                        END IF
+                    END IF
+                END IF
+            END IF
+        END IF
+    NEXT i
+
+END

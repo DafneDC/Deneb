@@ -1,0 +1,30 @@
+PROGRAM
+
+DIM dim, i, j AS INT
+DIM a, b AS INT
+DIM Array AS INT [10]
+
+MAIN
+    INPUT dim
+    PRINT "Escribe el vector"
+    FOR i = 0 TO dim -1
+        INPUT Array[i]
+    NEXT i
+
+    FOR i = 1 TO dim - 1
+        FOR j = 0 TO (dim - i - 1)
+            LET a = Array[j]
+            LET b = Array[j + 1]
+            IF (a > b) THEN
+                LET Array[j] = b
+                LET Array[j+1] = a
+            ELSE
+            END IF
+        NEXT j
+    NEXT i 
+
+    PRINT "Tu nuevo vector:"
+    FOR i = 0 TO dim -1
+        PRINT Array[i]
+    NEXT i
+END
